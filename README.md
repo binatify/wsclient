@@ -33,7 +33,7 @@ func main() {
 
 通过[链接](http://211.88.20.132:8040/services/syncServiceStation?wsdl)可以访问 syncServiceStation 服务的声明。
 
-## 以 Restful 方式提交数据
+以 Restful 方式提交数据:
 
 - `POST` 请求
 - Content-Type: application/soap+xml
