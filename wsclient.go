@@ -32,7 +32,6 @@ func NewClient(tr *http.Transport) *Client {
 
 const (
 	apiEndpoint = "http://211.88.20.132:8040/services/syncServiceStation?wsdl"
-	contentType = "application/soap+xml"
 )
 
 func (this *Client) Do(in interface{}) (body []byte, err error) {
@@ -46,7 +45,11 @@ func (this *Client) Do(in interface{}) (body []byte, err error) {
 		return
 	}
 
-	req.Header.Set("Content-Type", contentType)
+	req.Header.Set("Content-Type", "text/xml;charset=UTF-8")
+	req.Header.Set("Accept", "application/soap+xml, application/dime, multipart/related, text/*")
+	req.Header.Set("User-Agent", "Axis/1.4")
+	req.Header.Set("Host", "211.88.20.132:8040")
+	req.Header.Set("SOAPAction", "http://www.cvicse.com/service/syncServiceStationOperation")
 
 	resp, err := this.Client.Do(req)
 	if err != nil {

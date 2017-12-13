@@ -9,7 +9,14 @@
 ### 以 Restful 方式提交数据
 
 - `POST` 请求
-- Content-Type: application/soap+xml
+- 设置对应的 Header 信息：
+  ```golang
+  req.Header.Set("Content-Type", "text/xml;charset=UTF-8")
+  req.Header.Set("Accept", "application/soap+xml, application/dime, multipart/related, text/*")
+  req.Header.Set("User-Agent", "Axis/1.4")
+  req.Header.Set("Host", "211.88.20.132:8040")
+  req.Header.Set("SOAPAction", "http://www.cvicse.com/service/syncServiceStationOperation")
+  ```
 - Body 格式：
 
 ```xml
@@ -42,5 +49,3 @@
   </soapenv:Body>
 </soapenv:Envelope>
 ```
-
-
